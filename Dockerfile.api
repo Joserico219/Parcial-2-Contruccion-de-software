@@ -1,0 +1,14 @@
+FROM node:24-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+
+COPY server.js database.js index.html script.js style.css ./
+COPY Generic-Logo.webp Inteligencia.webp web-dev.jpg Curso-Planeacion-de-proyectos.webp ClubDeLectura.webp ./
+
+ENV PORT=3000
+EXPOSE 3000
+
+CMD ["node", "server.js"]

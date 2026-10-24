@@ -1,0 +1,247 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5F5;
+  color: #212121;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.site-header {
+  background-color: #1E88E5;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.logo {
+  height: 50px;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 16px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+  color: #FFC107;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.hero-text h1,
+.hero-text h2,
+.section h2 {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  color: #1E88E5;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #1E88E5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary:hover {
+  background-color: #1669bb;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+.section {
+  margin: 40px 0;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  padding: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.course-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.course-card h3 {
+  margin: 0 0 8px;
+  font-family: 'Poppins', sans-serif;
+  color: #1E88E5;
+  text-transform: uppercase;
+}
+
+.testimonial-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.testimonial {
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.testimonial span {
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-section form {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  max-width: 600px;
+}
+
+.form-row {
+  margin-bottom: 16px;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.form-row input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.error-message {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+.success-message {
+  color: #2e7d32;
+  margin-top: 10px;
+}
+
+footer.site-footer {
+  background: #212121;
+  color: #fff;
+  padding: 24px 0 14px;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-inner h3 {
+  margin: 0 0 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-links a {
+  display: inline-block;
+  color: #FFC107;
+  text-decoration: none;
+  margin-right: 16px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  font-size: 0.9rem;
+  margin-top: 12px;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-grid,
+  .testimonial-list {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav {
+    margin-top: 10px;
+  }
+
+  .main-nav a {
+    display: inline-block;
+    margin: 6px 10px 0 0;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
