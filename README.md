@@ -5,7 +5,7 @@ Este proyecto usa HTML, CSS y JavaScript para la página, Node.js con Express pa
 ## Preparar y ejecutar
 
 1. Instala Node.js si aún no está instalado.
-2. Abre una terminal en la carpeta `Plataforma/Plataforma`.
+2. Abre una terminal en la carpeta `Plataforma` (donde está `package.json`).
 3. Ejecuta `npm install` para instalar las dependencias.
 4. Ejecuta `npm test` para correr las pruebas automatizadas.
 5. Para iniciar la aplicación directamente con `npm start`, configura la variable `DATABASE_URL` con la dirección de una base PostgreSQL.

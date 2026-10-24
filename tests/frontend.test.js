@@ -37,9 +37,12 @@ describe('navegación', () => {
   });
 
   it('no oculta la página actual cuando el destino no existe', () => {
+    showPage('inicio');
     showPage('pagina-inexistente');
 
-    expect(document.getElementById('inicio').classList.contains('active')).toBe(false);
+    const inicio = document.getElementById('inicio');
+    expect(inicio.classList.contains('active')).toBe(true);
+    expect(inicio.style.display).toBe('block');
   });
 
   it('lleva el botón principal a la sección de registro', () => {
@@ -88,6 +91,30 @@ describe('formulario de registro', () => {
     expect(fetch).toHaveBeenCalledWith('/api/auth/register', expect.objectContaining({
       method: 'POST'
     }));
+  });
+
+  it('quita el estilo de error cuando un registro posterior es exitoso', async () => {
+    const form = document.getElementById('registro-form');
+    const message = document.getElementById('success-msg');
+    document.getElementById('nombre').value = 'Ana Pérez';
+    document.getElementById('correo').value = 'ana@universidad.edu';
+
+    fetch.mockResolvedValueOnce({
+      ok: false,
+      json: async () => ({ error: 'El correo ya existe.' })
+    });
+    form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    await vi.waitFor(() => expect(message.classList.contains('error-message')).toBe(true));
+
+    fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ message: 'Registro creado.' })
+    });
+    document.getElementById('correo').value = 'otra@universidad.edu';
+    form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+    await vi.waitFor(() => expect(message.textContent).toContain('Registro completado'));
+    expect(message.classList.contains('error-message')).toBe(false);
   });
 
   it('muestra un error si el servidor rechaza el registro', async () => {

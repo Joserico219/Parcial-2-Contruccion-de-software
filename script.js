@@ -57,6 +57,7 @@ function initForm() {
     errorNombre.textContent = '';
     errorCorreo.textContent = '';
     successMsg.textContent = '';
+    successMsg.classList.remove('error-message');
 
     if (!nombre.value.trim() || nombre.value.trim().length < 3) {
       errorNombre.textContent = 'Nombre completo debe tener al menos 3 caracteres.';
